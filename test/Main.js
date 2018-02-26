@@ -1,3 +1,7 @@
 // 游戏主类
 
-export 
+export class Main {
+    constructor() {
+        console.log('我执行了')
+    }
+}
