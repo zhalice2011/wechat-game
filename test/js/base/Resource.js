@@ -1,6 +1,6 @@
 
 // 资源类
-export const Resources = [
+export const Resource = [
     ['background', 'res/background.png'],
     ['land', 'res/land.png'],
     ['pencilUp', 'res/pie_up.png'],
