@@ -1,5 +1,5 @@
 // 精灵的基类 负责初始化精灵加载的 资源 和 大小 位置  父类
-export class Sprit {
+export class Sprite {
     constructor(  // = 后面是默认值
         ctx = null,
         img = null,  // 图片地址
@@ -23,5 +23,21 @@ export class Sprit {
         this.width = width// 要使用的宽度
         this.height = height // 要使用的高度  
 
+    }
+
+    // 绘制
+    draw() {
+        console.log('')
+        this.ctx.drawImage(
+            this.img,  
+            this.srcX, // 要剪裁的x坐标
+            this.srcY, // 要剪裁的y坐标
+            this.srcW, // 要剪裁的宽度
+            this.srcH, // 要剪裁的高度
+            this.x,    // 从图片的那个地方开始裁剪
+            this.y,    // 从图片的那个地方开始裁剪
+            this.width,// 要使用的宽度
+            this.height // 要使用的高度 
+        )
     }
 }

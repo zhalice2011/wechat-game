@@ -1,4 +1,4 @@
-//导演类 控制游戏进程
+//导演类 控制游戏进程  逻辑放在这个类里面
 export class Director {
     constructor() {
         console.log('构造器初始化=>测试Director是否只创建一次')
