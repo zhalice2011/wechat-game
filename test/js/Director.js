@@ -1,7 +1,10 @@
 //导演类 控制游戏进程  逻辑放在这个类里面
+import { DataStore } from './base/DataStore.js'
+
 export class Director {
     constructor() {
         console.log('构造器初始化=>测试Director是否只创建一次')
+        this.dataStore = DataStore.getInstance()
     }
 
     // 让Director
@@ -10,5 +13,13 @@ export class Director {
             Director.instance = new Director()
         }
         return Director.instance
+    }
+
+    // 游戏运行的方法 
+    run() {
+        //先拿到dataStore获取当前的状态
+        const backgroundSprite = this.dataStore.get('background')
+        backgroundSprite.draw()
+        
     }
 }

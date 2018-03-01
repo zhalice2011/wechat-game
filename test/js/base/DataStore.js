@@ -14,6 +14,9 @@ export class DataStore {
     }
 
     put(key, value) {
+        if(typeof value === 'function') {
+            value = new value()
+        }
         this.map.set(key,value);
         return this  // return这个对象本身  用链式方法去操作 就不用多次put了
     }

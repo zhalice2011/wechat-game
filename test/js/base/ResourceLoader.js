@@ -5,8 +5,6 @@ export  class ResourceLoader {
         this.map = new Map(Resource)
         // 遍历  let 和var 的区别,var会在全局中声明,而let只在for中生效
         for (let[key,value] of this.map) {
-            // console.log('key',key)
-            // console.log('value',value)
             const image = new Image();
             image.src = value;
             this.map.set(key,image); //将map的key对应的value替换成image对象
@@ -29,6 +27,4 @@ export  class ResourceLoader {
     static create() {
         return new ResourceLoader();
     }
-    // console.log(this.map)
-
 }
