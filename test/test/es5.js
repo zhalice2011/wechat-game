@@ -24,7 +24,32 @@
     var cat = new Animal('小猫',1)
     cat.say()
 
+    // 寄生组合继承  call()  和 apply()方法
+    // 调用一个对象的一个方法,用另一个对象替换当前对象
+    // Animal.prototype.say.call(cat)  // 调用了cat.say方法,但是我们不是直接通过cat.say调用的
 
+    // var params = {
+    //     name: '小猫2',
+    //     age:4
+    // }
+    // cat.say.call(params); // 打印出来 小猫2 4岁
 
+    // 寄生组合继承
+    var Cat = function(name, age) {
+        Animal.apply(this,arguments) // 把
+    }
+    Cat.prototype = Object.create(Animal.prototype) //浅克隆
+    Cat.prototype.say = function() {
+        var p = {
+            name:'父类名字',
+            age:'100'
+        }
+        Animal.prototype.say.apply(p)   // 调用了父类的say
+        console.log('这是子类的名字' +this.name)
+    }
+    var cat1 = new Cat('子猫',10)
+    cat1.say()
+    //父类名字  100岁
+    //这是子类的名字子猫
 
 })()

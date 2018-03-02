@@ -3,6 +3,7 @@ import { ResourceLoader } from './js/base/ResourceLoader.js'
 import { DataStore } from './js/base/DataStore.js'
 import { Director } from './js/Director.js'
 import { BackGround } from './js/runtime/Background.js'
+import { Land } from './js/runtime/Land.js'
 
 // new ResourceLoader()
 export class Main {
@@ -27,8 +28,10 @@ export class Main {
     }
 
     init() {
-        this.dataStore.put('background',BackGround)
-
+        this.dataStore
+            .put('background',BackGround) //生成BackGround image对象 并且put到dataStore中
+            .put('land',Land); //生成land image对象 并且put到dataStore中
+        
         // //导演类游戏运行
         Director.getInstance().run()
     }
